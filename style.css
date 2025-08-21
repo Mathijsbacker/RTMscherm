@@ -1,0 +1,244 @@
+body {
+  background-color: #f9f9f9; /* licht thema */
+  color: #000;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.settings {
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.settings label, .settings h3 {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.settings input, .settings select {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.settings button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#stopsList {
+  margin-bottom: 10px;
+}
+
+.stopItem {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.stopItem button {
+  padding: 2px 6px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.board {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.departure-time {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.vehicle-type {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.vehicle-type .logo {
+  height: 80px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.end-destination {
+  font-size: 48px;
+  margin-top: 15px;
+}
+
+.change-text {
+  color: red;
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+.stops {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.stops img {
+  height: 28px;
+  width: 28px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.train {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.loc, .car {
+  width: 90px;
+  height: 60px;
+  background: #4CAF50;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.loc {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.car {
+  border-radius: 12px;
+}
+
+.extra-info {
+  font-size: 28px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.next-train {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Fullscreen styling */
+.board:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  padding: 50px;
+  font-size: 3vw;
+  background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+}
+
+.board:fullscreen .departure-time {
+  font-size: 8vw;
+}
+
+.board:fullscreen .vehicle-type {
+  font-size: 4vw;
+}
+
+.board:fullscreen .vehicle-type .logo {
+  height: 8vw;
+  width: auto;
+  margin-right: 1vw;
+}
+
+.board:fullscreen .end-destination {
+  font-size: 5vw;
+}
+
+.board:fullscreen .change-text {
+  font-size: 2.5vw;
+}
+
+.board:fullscreen .stops {
+  font-size: 3vw;
+}
+
+.board:fullscreen .stops img {
+  height: 4vw;
+  width: 4vw;
+  margin-left: 0.5vw;
+}
+
+.board:fullscreen .train .loc,
+.board:fullscreen .train .car {
+  width: 10vw;
+  height: 6vw;
+  font-size: 2.5vw;
+}
+
+.board:fullscreen .extra-info {
+  font-size: 3vw;
+}
+
+.board:fullscreen .next-train {
+  font-size: 3vw;
+  margin-top: 2vh;
+}
+
+.board {
+  position: relative;  /* nodig voor absoluut gepositioneerde kinderen */
+}
+
+.next-train {
+  position: absolute;
+  bottom: 20px;       /* afstand vanaf onderkant */
+  left: 50%;          /* horizontaal centreren */
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Fullscreen */
+.board:fullscreen .next-train {
+  bottom: 2vh;
+  padding: 1vw 1.5vw;
+  border-radius: 1vw;
+  font-size: 3vw;
+}

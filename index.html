@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RTM Vertrekbord</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- Instellingen -->
+  <div class="settings">
+    <h2>Instellingen</h2>
+
+    <!-- Preset dropdown tussen titel en vertrektijd -->
+    <div class="preset" style="margin-bottom: 10px;">
+      <label>Preset:
+        <select id="presetSelect" onchange="applyPreset()">
+          <option value="">-- Kies preset --</option>
+          <option value="3rit11:30">3 Rittendag 11:30</option>
+          <option value="3rit13:30">3 Rittendag 13:30</option>
+          <option value="3rit15:30">3 Rittendag 15:30</option>
+          <option value="2rit13:30">2 Rittendag 13:30</option>
+          <option value="2rit15:30">2 Rittendag 15:30</option>
+        </select>
+      </label>
+    </div>
+
+    <label>Vertrektijd:
+      <input type="time" id="departureTime" value="14:30">
+    </label>
+    <label>Type voertuig:
+      <select id="vehicleType">
+        <option value="Tram">Tram</option>
+        <option value="Goederentram">Goederentram</option>
+        <option value="Extra tram">Extra tram</option>
+        <option value="Speciale tram">Speciale tram</option>
+      </select>
+    </label>
+    <label>Eindbestemming:
+      <select id="endPoint">
+        <option value="RTM Remise">RTM Remise</option>
+        <option value="De Punt">De Punt</option>
+        <option value="Port Zélande">Port Zélande</option>
+        <option value="Middelplaat Haven">Middelplaat Haven</option>
+        <option value="Scharendijke">Scharendijke</option>
+      </select>
+    </label>
+    <label>Wijzigingstekst (optioneel):
+      <input type="text" id="changeText" value="">
+    </label>
+
+    <h3>Tussenstops</h3>
+    <div id="stopsList"></div>
+    <select id="newStopName">
+      <option value="">Selecteer halte</option>
+      <option value="RTM Remise">RTM Remise</option>
+      <option value="De Punt">De Punt</option>
+      <option value="Port Zélande">Port Zélande</option>
+      <option value="Middelplaat Haven">Middelplaat Haven</option>
+      <option value="Scharendijke">Scharendijke</option>
+    </select>
+    <select id="newStopIcon">
+      <option value="">Geen</option>
+      <option value="bus">Bus</option>
+      <option value="boot">Boot</option>
+    </select>
+    <button onclick="addStop()">Halte toevoegen</button>
+
+    <label>Aantal rijtuigen:
+      <input type="number" id="numCars" value="3" min="0" max="10">
+    </label>
+    <label>Loc als rijtuig gebruiken:
+      <input type="checkbox" id="locAsCar">
+    </label>
+    <label>Rijtuigen nummeren:
+      <input type="checkbox" id="numberCars" checked>
+    </label>
+    <button onclick="updateBoard()">Update Bord</button>
+  </div>
+
+  <!-- Vertrekbord -->
+  <div class="board" id="boardDisplay">
+    <div class="top-row">
+      <div class="departure-time" id="timeDisplay">14:30</div>
+      <div class="vehicle-type" id="typeDisplay">
+        <img src="rtm-logo.png" alt="RTM" class="logo">
+        <span>Tram</span>
+      </div>
+    </div>
+    <div class="end-destination" id="endPointDisplay">Rotterdam</div>
+    <div class="change-text" id="changeTextDisplay"></div>
+    <div class="stops" id="stopsDisplay"></div>
+    <div class="extra-info">
+      <div id="trackDisplay">Spoor 2</div>
+    </div>
+    <div class="train" id="train"></div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
